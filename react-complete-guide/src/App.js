@@ -28,6 +28,14 @@ function App() {
 			<Expenses items={expenses} />
 		</div>
 	);
+
+	// Poniżej wersja komponentu z wykorzystaniem starej wersji React. Należy na górze każdego pliku (także index.js) dodać: import React from 'react';
+	// return React.createElement(
+	// 	'div',
+	// 	{},
+	// 	React.createElement('h2', {}, "Let's get started!"),
+	// 	React.createElement(Expenses, { items: expenses })
+	// );
 }
 
 export default App;
