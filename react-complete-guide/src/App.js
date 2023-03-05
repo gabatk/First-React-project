@@ -24,11 +24,10 @@ const expenses = [
 ];
 
 const App = () => {
-	
-	const addExpenseHandler = (expense) => {
+	const addExpenseHandler = expense => {
 		console.log('in app js');
-	console.log(expense);
-	}
+		console.log(expense);
+	};
 
 	return (
 		<div>
@@ -44,6 +43,6 @@ const App = () => {
 	// 	React.createElement('h2', {}, "Let's get started!"),
 	// 	React.createElement(Expenses, { items: expenses })
 	// );
-}
+};
 
 export default App;
