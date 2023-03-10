@@ -3,6 +3,9 @@ import ChartBar from './ChartBar';
 import './Chart.css';
 
 const Chart = props => {
+	const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value); //dataPoints to obiekty, dlatego musimy z nich wyciągnąć tylko wartość
+	const totalMaximum = Math.max(...dataPointValues); //Spread operator, bo max potrzebuje pojedynczych wartości, a dataPointValues to array.
+
 	return (
 		<div className='chart'>
 			{props.dataPoints.map(dataPoint => (
@@ -10,7 +13,7 @@ const Chart = props => {
 					// Key potrezbne, aby react odpowiednio sortował dane}
 					key={dataPoint.label}
 					value={dataPoint.value}
-					maxValue={null}
+					maxValue={totalMaximum}
 					label={dataPoint.label}
 				/>
 			))}

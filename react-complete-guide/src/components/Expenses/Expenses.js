@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
 const Expenses = props => {
@@ -16,13 +17,14 @@ const Expenses = props => {
 
 	return (
 		<div>
-		<Card className='expenses'>
-			<ExpensesFilter
-				selected={filteredYear}
-				onChangeFilter={filterChangeHandler}
-			/>
-			{/* Poniżej jeden ze sposobów na warunkowe wyświetlanie treści */}
-			{/* {filteredExpenses.length === 0 && <p>No expenses found.</p>}
+			<Card className='expenses'>
+				<ExpensesFilter
+					selected={filteredYear}
+					onChangeFilter={filterChangeHandler}
+				/>
+				<ExpensesChart expenses={filteredExpenses} />
+				{/* Poniżej jeden ze sposobów na warunkowe wyświetlanie treści */}
+				{/* {filteredExpenses.length === 0 && <p>No expenses found.</p>}
 			{filteredExpenses.length > 0 &&
 				filteredExpenses.map(expense => (
 					<ExpenseItem
@@ -32,8 +34,8 @@ const Expenses = props => {
 						date={expense.date}
 					/>
 				))} */}
-			<ExpensesList items={filteredExpenses} />
-		</Card>
+				<ExpensesList items={filteredExpenses} />
+			</Card>
 		</div>
 	);
 };
